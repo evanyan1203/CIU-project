@@ -10,14 +10,12 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def push_front(self, value):
-        new_node = Node(value, self.head)
-        self.head = new_node
-    def front(self ):
-        if self.head is None:
+    def front(self):
+        if self.head == None:
             raise IndexError("List is empty")
         return self.head.value
     
+#  pop_front() - remove the front item and return its value
     def pop_front(self):
         if self.head is None:
             raise IndexError("List is empty")
@@ -41,23 +39,63 @@ class LinkedList:
     
 #  value_at(index) - returns the value of the nth item (starting at 0 for first)
     def value_at(self,index):
+        
+        if index<0 or index>= self.size():
+            raise IndexError("index out of bound")
+        
         current = self.head
+
         for i in range(index):
-            if current is None:
-                raise IndexError("Index out of bounds")
             current = current.next
-        if current is None:
-            raise IndexError("Index out of bounds")
+
         return current.value
     
 #  push_front(value) - adds an item to the front of the list
     def push_front(self, value):
         new_node = Node(value, self.head)
         self.head = new_node
-
-#  pop_front() - remove the front item and return its value
+        return
+    
 #  push_back(value) - adds an item at the end
+    def push_back(self,value):
+
+        new_node = Node(value)
+              
+        if self.head == None:
+            self.head = new_node
+            
+
+        current = self.head
+
+        while current.next:
+            current = current.next
+
+        current.next = new_node
+        
 #  pop_back() - removes end item and returns its value
+    def pop_back(self):
+
+        if self.head is None:
+            raise IndexError("list is empty")
+
+        if self.head.next is None:
+            value = self.head.value
+            self.head = None
+            return value
+        
+        current = self.head
+
+        while current.next.next:
+            current = current.next
+        
+        last_node = current.next
+        
+        current.next = None
+
+        return last_node.value
+  
+
+    
 #  front() - get the value of the front item
 #  back() - get the value of the end item
 #  insert(index, value) - insert value at index, so the current item at that index is pointed to by the new item at the index
