@@ -167,4 +167,44 @@ class LinkedList:
 
         return current.value
 #  reverse() - reverses the list
+    def reverse(self):
+        prev = None
+        current = self.head
+
+        while current != None:
+            next_node = current.next
+            current.next = prev 
+            prev = current
+            current = next_node
+
+        self.head = prev
+            
+
+
+
 #  remove_value(value) - removes the first item in the list with this value 
+
+    def remove_value(self,value):
+        
+        if self.head is None:
+            return None
+        
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+        
+        current = self.head
+
+        while current.next:
+            if current.next.value ==value:
+                current.next = current.next.next
+
+                return
+            
+            current = current.next
+
+        return None
+        
+
+        
+
