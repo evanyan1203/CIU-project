@@ -13,10 +13,21 @@ lst.push_back(40)
 
 
 
+for i in range(lst.size()):
+
+    print(lst.value_at(i))
+
+
+lst.reverse()
+
+for i in range(lst.size()):
+
+    print(lst.value_at(i))
+
+lst.remove_value(40)
 
 
 for i in range(lst.size()):
 
     print(lst.value_at(i))
 
-print(lst.value_n_from_end(2))
