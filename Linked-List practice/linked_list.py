@@ -112,6 +112,25 @@ class LinkedList:
         
 #  insert(index, value) - insert value at index, so the current item at that index is pointed to by the new item at the index
 
+    def insert(self,index,value):
+        if index<0 or index > self.size():
+            raise IndexError("Index out of bound")
+        
+        new_node = Node(value)
+        current = self.head
+
+        if index == 0 :
+            new_node.next = self.head
+            self.head = new_node 
+            return 
+        
+        for i in range(index-1):
+            current = current.next
+            
+        new_node.next = current.next
+        current.next = new_node
+
+
 #  erase(index) - removes node at given index
     def erase(self,index):
         if index<0 or index>= self.size():
