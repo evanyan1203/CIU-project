@@ -598,7 +598,7 @@ if you can identify the runtime complexity of different algorithms. It's a super
 
 ## Data Structures
 
-- ### Arrays
+- ### Arrays DONE
     - [ ] About Arrays:
     	- [Arrays CS50 Harvard University](https://www.youtube.com/watch?v=tI_tIZFyKBw&t=3009s)
         - [Arrays (video)](https://www.coursera.org/lecture/data-structures/arrays-OsBSF)
@@ -631,7 +631,7 @@ if you can identify the runtime complexity of different algorithms. It's a super
         - contiguous in memory, so proximity helps performance
         - space needed = (array capacity, which is >= n) * size of item, but even if 2n, still O(n)
 
-- ### Linked Lists
+- ### Linked Lists DONE
     - [ ] Description:
     	- [ ] [Linked Lists CS50 Harvard University](https://www.youtube.com/watch?v=2T-A_GFuoTo&t=650s) - this builds the intuition.
         - [ ] [Singly Linked Lists (video)](https://www.coursera.org/lecture/data-structures/singly-linked-lists-kHhgK)
