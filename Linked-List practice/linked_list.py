@@ -126,7 +126,7 @@ class LinkedList:
         
         for i in range(index-1):
             current = current.next
-            
+
         new_node.next = current.next
         current.next = new_node
 
@@ -146,15 +146,25 @@ class LinkedList:
             current = current.next
         
         index_node = current.next
-        current.next = index.node.next
+        current.next = index_node.next
         index_node.value = None
 
 
 
-        
-        
-
-
 #  value_n_from_end(n) - returns the value of the node at the nth position from the end of the list
+
+    def value_n_from_end(self,n):
+        
+        if n<=0 or n >self.size():
+            raise IndexError("Index out of bound")
+        
+            
+        current = self.head
+
+
+        for i in range(self.size()-n):
+            current = current.next
+
+        return current.value
 #  reverse() - reverses the list
 #  remove_value(value) - removes the first item in the list with this value 
