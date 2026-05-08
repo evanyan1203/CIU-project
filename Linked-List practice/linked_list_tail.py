@@ -30,7 +30,7 @@ class Linked_list:
 #  value_at(index) - returns the value of the nth item (starting at 0 for first)
 
     def value_at(self,index):
-        current = 0
+        current = self.head
         for i in range(index):
             current = current.next
 
@@ -57,13 +57,24 @@ class Linked_list:
         value = self.head.value
         
         self.head = self.head.next
-        
+
         if self.head is None:
             self.tail = None
         return value
     
 
 #  push_back(value) - adds an item at the end
+    def push_back(self,value):
+        new_node = Node(value)
+
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+            return
+        
+        self.tail.next = new_node
+        self.tail = new_node
+       
 #  pop_back() - removes end item and returns its value
 #  front() - get the value of the front item
 #  back() - get the value of the end item
