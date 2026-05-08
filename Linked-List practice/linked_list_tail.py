@@ -76,6 +76,27 @@ class Linked_list:
         self.tail = new_node
        
 #  pop_back() - removes end item and returns its value
+    def pop_back(self):
+        
+        if self.head is None:
+            raise IndexError("list is empty")
+        
+        value = self.tail.value
+
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+            return value
+    
+        current= self.head
+
+        while current.next is not self.tail:
+            current = current.next
+
+        self.tail = current
+        self.tail.next = None
+
+        return value
 #  front() - get the value of the front item
 #  back() - get the value of the end item
 #  insert(index, value) - insert value at index, so the current item at that index is pointed to by the new item at the index
