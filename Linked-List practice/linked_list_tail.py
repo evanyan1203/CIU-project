@@ -98,9 +98,41 @@ class Linked_list:
 
         return value
 #  front() - get the value of the front item
+    def front(self):
+        if self.head is None:
+            raise IndexError("list is empty")
+        return self.head.value
+    
 #  back() - get the value of the end item
+    def back(self):
+        if self.head is None:
+            raise IndexError("list is empty")
+        return self.tail.value
+    
 #  insert(index, value) - insert value at index, so the current item at that index is pointed to by the new item at the index
+    def insert(self,index,value):
+        if index<0 or index>=self.size():
+            raise IndexError("index out of bound")
+
+        if index == 0 :
+            self.push_front(value)
+            return
+        
+        if index == self.size():
+            self.push_back(value)
+
+        new_node = Node(value)
+        current = self.head
+
+        for i in range(index-1):
+            current = current.next
+        
+        new_node.next = current.next
+        current.next = new_node
+
+       
 #  erase(index) - removes node at given index
+
 #  value_n_from_end(n) - returns the value of the node at the nth position from the end of the list
 #  reverse() - reverses the list
 #  remove_value(value) - removes the first item in the list with this value
