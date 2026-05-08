@@ -56,14 +56,12 @@ class Linked_list:
 
         value = self.head.value
         
-        if self.head == self.tail:
-        
-            self.head = None
-            self.tail = None
-            return value
-        
         self.head = self.head.next
+        
+        if self.head is None:
+            self.tail = None
         return value
+    
 
 #  push_back(value) - adds an item at the end
 #  pop_back() - removes end item and returns its value
