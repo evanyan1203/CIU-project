@@ -192,3 +192,27 @@ class Linked_list:
 
 
 #  remove_value(value) - removes the first item in the list with this value
+
+    def remove_value(self,value):
+        if self.head is None:
+            return 
+        
+
+        if self.head.value == value:
+            self.pop_front()
+            return
+        
+        current = self.head
+
+        while current.next:
+            if current.next.value ==value:
+                if current.next == self.tail:
+                    self.tail = current
+
+                current.next = current.next.next
+                
+                return
+            current = current.next
+
+
+        
