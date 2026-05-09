@@ -132,6 +132,26 @@ class Linked_list:
 
        
 #  erase(index) - removes node at given index
+    def erase(self,index):
+        if index<0 or index>=self.size():
+            raise IndexError("index out of bound")
+        
+        if index ==0:
+            self.pop_front()
+            return
+        
+        if index == self.size()-1:
+            self.pop_back()
+            return
+        
+        current = self.head
+        
+        for i in range(index-1):
+            current = current.next
+        
+        current.next = current.next.next
+
+
 
 #  value_n_from_end(n) - returns the value of the node at the nth position from the end of the list
 #  reverse() - reverses the list
