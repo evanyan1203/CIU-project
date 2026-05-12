@@ -3,7 +3,7 @@
 class Node:
     def __init__(self, value,next = None):
         self.value = value
-        self.next = None
+        self.next = next
 
 
 class Queue:
@@ -36,19 +36,6 @@ class Queue:
 
         if self.head is None:
             self.tail = None
-            
+
         return value
 
-
-#  Implement using a fixed-sized array:
-# enqueue(value) - adds item at end of available storage
-# dequeue() - returns value and removes least recently added element
-# empty()
-# full()
-
-
-#  Cost:
-# a bad implementation using a linked list where you enqueue at the head and dequeue at the tail would be O(n) because you'd need the next to last element, causing a full traversal of each dequeue
-# enqueue: O(1) (amortized, linked list and array [probing])
-# dequeue: O(1) (linked list and array)
-# empty: O(1) (linked list and array)
