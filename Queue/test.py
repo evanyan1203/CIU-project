@@ -1,4 +1,4 @@
-from queue import Queue
+from queue1 import Queue
 
 lst = []
 q = Queue()
