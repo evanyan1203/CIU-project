@@ -10,3 +10,5 @@ print(bs.search(nums, 5))
 print(bs.search(nums, 6))  
 #  -1
 
+print(bs.search_recursion(nums, 7, 0, len(nums)-1))  
+#  3

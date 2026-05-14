@@ -6,6 +6,7 @@ class BinarySearch:
     
 # binary search (on a sorted array of integers)
     def search(self,arr,target):
+
         left,right = 0 , len(arr) - 1
 
         while left<=right:
@@ -24,3 +25,21 @@ class BinarySearch:
 
 
 # binary search using recursion
+    def search_recursion(self,arr,target,left,right):
+
+
+        if left > right:
+            return -1
+        
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            return mid
+        
+        if arr[mid] < target:
+            return self.search_recursion(arr, target, mid + 1, right)
+        
+        if arr[mid] > target:
+            return self.search_recursion(arr, target, left, mid - 1)
+        
+        
