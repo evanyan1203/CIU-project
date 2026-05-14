@@ -30,5 +30,37 @@ class HashTable:
 
 
 # exists(key)
-# get(key)
+    def exists(self,key):
+        index = self.hash_key(key,self.capacity)
+
+        while self.table[index] is not None:
+            stored_key, stored_value = self.table[index]
+
+            if stored_key == key:
+                return True
+            
+            index = (index+1) % self.capacity
+        return False
+    
 # remove(key)
+    def remove(self,key):
+        index = self.hash_key(key,self.capacity)
+
+        DELETED = object()
+
+        for i in range(self.capacity):
+            if self.table[index] is None:
+                raise KeyError("key not found")
+            
+            if self.table[index] is not DELETED:
+                stored_key, stored_value = self.table[index]
+
+                if stored_key == key:
+                    self.table[index] = DELETED
+                    self.size-=1
+                    return
+
+            
+            index = (index+1)% self.capacity
+        
+        raise KeyError("Key not found")
